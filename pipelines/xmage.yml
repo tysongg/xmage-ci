@@ -1,3 +1,9 @@
+resource_types:
+- name: discord-resource
+  type: docker-image
+  source:
+    repository: trivigy/discord-resource
+
 resources:
 - name: ci
   type: git
@@ -32,6 +38,12 @@ resources:
   icon: docker
   check_every: 10m
 
+- name: discord
+  type: discord-resource
+  source: 
+    token: ((discord-token))
+  check_every: 999999h
+
 jobs:
 - name: build
   public: true
@@ -52,3 +64,9 @@ jobs:
       image: image/image.tar,
       additional_tags: xmage-release/version
     }
+  - put: discord
+    params: 
+      channel: 675196181097349120
+      color: 6076508
+      title: A new xmage docker image is avaliable
+      message: https://hub.docker.com/r/tysondenio/xmage/tags
