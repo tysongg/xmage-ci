@@ -6,6 +6,14 @@ echo ""
 
 echo "Release"
 ls -al ./xmage-release
+echo ""
 
 echo "Tag $(cat ./xmage-release/tag)"
 echo "Version $(cat ./xmage-release/version)"
+echo ""
+
+echo "Unzipped"
+TAG=$(cat ./xmage-release/tag)
+unzip ./xmage-release/$TAG -d ./xmage
+ls -al ./xmage
+echo ""
