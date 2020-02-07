@@ -29,9 +29,12 @@ resources:
     repository: tysondenio/xmage
     username: ((docker-username))
     password: ((docker-password))
+  icon: docker
+  check_every: 10m
 
 jobs:
 - name: build
+  public: true
   plan:
   - in_parallel:
     - get: xmage-docker
