@@ -6,5 +6,6 @@ echo ""
 
 echo "Release"
 ls -al ./xmage-release
-cat ./xmage-release/tag
-cat ./xmage-release/version
+
+echo "Tag $(cat ./xmage-release/tag)"
+echo "Version $(cat ./xmage-release/version)"
