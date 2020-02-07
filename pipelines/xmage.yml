@@ -23,12 +23,12 @@ resources:
   icon: package-down
   check_every: 10m
 
-# - name: xmage-image
-#   type: registry-image
-#   source:
-#     repository: tysongg/xmage
-#     username: ((docker-username))
-#     password: ((docker-password))
+- name: xmage-image
+  type: registry-image
+  source:
+    repository: tysondenio/xmage
+    username: ((docker-username))
+    password: ((docker-password))
 
 jobs:
 - name: build
@@ -42,4 +42,10 @@ jobs:
   - task: Extract Release
     file: ci/tasks/extract_release.yml
   - task: Build Image
+    privileged: true
     file: ci/tasks/build_image.yml
+  - put: xmage-image
+    params: {
+      image: image/image.tar,
+      additional_tags: xmage-release/version
+    }
