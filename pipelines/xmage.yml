@@ -1,4 +1,10 @@
 resources:
+- name: ci
+  type: git
+  source:
+    uri: https://github.com/tysongg/xmage-ci.git
+  icon: gitlab
+
 - name: xmage-docker
   type: git
   source:
@@ -28,17 +34,6 @@ jobs:
       trigger: true
     - get: xmage-release
       trigger: true
+    - get: ci
   - task: Build Image
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source:
-          repository: busybox
-      inputs:
-      - name: xmage-docker
-      - name: xmage-release
-
-      run:
-        path: echo
-        args: ["hello world"]
+    file: ci/tasks/build_image.yml
