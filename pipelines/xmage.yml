@@ -1,0 +1,44 @@
+resources:
+- name: xmage-docker
+  type: git
+  source:
+    uri: https://github.com/LunarNightShade/docker-xmage-openjdk.git
+  icon: gitlab
+
+- name: xmage-release
+  type: github-release
+  source:
+    owner: magefree
+    repository: mage
+    tag_filter: xmage_(.*)
+  icon: package-down
+
+# - name: xmage-image
+#   type: registry-image
+#   source:
+#     repository: tysongg/xmage
+#     username: ((docker-username))
+#     password: ((docker-password))
+
+jobs:
+- name: build
+  plan:
+  - in_parallel:
+    - get: xmage-docker
+      trigger: true
+    - get: xmage-release
+      trigger: true
+  - task: Build Image
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: busybox
+      inputs:
+      - name: xmage-docker
+      - name: xmage-release
+
+      run:
+        path: echo
+        args: ["hello world"]
