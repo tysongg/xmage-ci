@@ -35,5 +35,5 @@ jobs:
     - get: xmage-release
       trigger: true
     - get: ci
-  - task: Build Image
-    file: ci/tasks/build_image.yml
+  - task: Extract Release
+    file: ci/tasks/extract_release.yml
