@@ -4,20 +4,24 @@ resources:
   source:
     uri: https://github.com/tysongg/xmage-ci.git
   icon: gitlab
+  check_every: 10m
 
 - name: xmage-docker
   type: git
   source:
     uri: https://github.com/tysongg/docker-xmage-openjdk.git
   icon: gitlab
+  check_every: 10m
 
 - name: xmage-release
   type: github-release
   source:
     owner: magefree
     repository: mage
+    access_token: ((github-access-token))
     tag_filter: xmage_(.*)
   icon: package-down
+  check_every: 10m
 
 # - name: xmage-image
 #   type: registry-image
