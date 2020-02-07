@@ -14,4 +14,4 @@ outputs:
 - name: xmage
 
 run:
-  path: ci/scripts/build_image.sh
+  path: ci/scripts/extract_release.sh
