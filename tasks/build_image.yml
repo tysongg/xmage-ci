@@ -1,0 +1,17 @@
+platform: linux
+
+image_resource:
+  type: registry-image
+  source:
+    vito/oci-build-task
+
+inputs:
+- name: xmage-docker
+  path: .
+- name: xmage
+
+outputs:
+- name: image
+
+run:
+  path: build

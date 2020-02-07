@@ -14,6 +14,6 @@ echo ""
 
 echo "Unzipped"
 TAG=$(cat ./xmage-release/tag)
-unzip ./xmage-release/$TAG -d ./xmage
+unzip ./xmage-release/$TAG -x "mage_client" -d ./xmage
 ls -al ./xmage
 echo ""

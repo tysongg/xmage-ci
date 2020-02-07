@@ -8,7 +8,7 @@ resources:
 - name: xmage-docker
   type: git
   source:
-    uri: https://github.com/LunarNightShade/docker-xmage-openjdk.git
+    uri: https://github.com/tysongg/docker-xmage-openjdk.git
   icon: gitlab
 
 - name: xmage-release
@@ -37,3 +37,5 @@ jobs:
     - get: ci
   - task: Extract Release
     file: ci/tasks/extract_release.yml
+  - task: Build Image
+    file: ci/tasks/build_image.yml

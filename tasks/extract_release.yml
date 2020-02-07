@@ -6,7 +6,6 @@ image_resource:
     repository: busybox
 
 inputs:
-- name: xmage-docker
 - name: xmage-release
 - name: ci
 
