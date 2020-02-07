@@ -63,9 +63,17 @@ jobs:
     params: 
       image: image/image.tar
       additional_tags: xmage-release/version
-  - put: discord
+  on_success:
+    put: discord
     params: 
       channel: "675196181097349120"
       color: 6076508
       title: A new xmage docker image is avaliable
       message: https://hub.docker.com/r/tysondenio/xmage/tags
+  on_failure:
+    put: discord
+    params: 
+      channel: "675196181097349120"
+      color: 6076508
+      title: Failed to build new xmage docker image
+      message: :[
