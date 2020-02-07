@@ -65,8 +65,9 @@ jobs:
       additional_tags: xmage-release/version
     }
   - put: discord
-    params: 
-      channel: 675196181097349120
-      color: 6076508
-      title: A new xmage docker image is avaliable
+    params: {
+      channel: 675196181097349120,
+      color: 6076508,
+      title: A new xmage docker image is avaliable,
       message: https://hub.docker.com/r/tysondenio/xmage/tags
+    }
