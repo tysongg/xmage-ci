@@ -66,14 +66,14 @@ jobs:
   on_success:
     put: discord
     params: 
-      channel: "675196181097349120"
+      channel: "633522789231362067"
       color: "34EB43"
       title: A new xmage docker image is avaliable
       message: https://hub.docker.com/r/tysondenio/xmage/tags
   on_failure:
     put: discord
     params: 
-      channel: "675196181097349120"
+      channel: "633522789231362067"
       color: "EB3434"
       title: Failed to build new xmage docker image
       message: :[
